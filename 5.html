@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <input type="password" placeholder="密码">
+        <button>明文</button>
+    </form>
+
+    <script>
+        document.querySelector('form').onclick = function (e) {
+            if (e.target.tagName === 'BUTTON') {
+                if (e.target.innerText === '明文') {
+                    e.target.previousElementSibling.type = 'text';
+                    e.target.innerText = '密文';
+                } else {
+                    e.target.previousElementSibling.type = 'password';
+                    e.target.innerText = '明文';
+                }
+            }
+
+
+            e.preventDefault();
+        }
+    </script>
+</body>
+
+</html>
