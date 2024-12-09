@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        div>img {
+            width: 60%;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul li {
+            width: 150px;
+        }
+
+        ul li img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="" alt="">
+        <ul>
+            <!-- <li><img src="./img/1.jpeg" alt=""></li> -->
+            <li><img src="./img/2.jpeg" alt=""></li>
+            <li><img src="./img/3.jpeg" alt=""></li>
+        </ul>
+    </div>
+
+    <script>
+        document.querySelector('div').onclick = function (e) {
+            if (e.target.parentNode.tagName === 'LI') {
+                document.querySelector('div>img').src = e.target.src;
+            }
+        }
+    </script>
+</body>
+
+</html>
