@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div {
+            width: 50%;
+            height: 30px;
+            margin: 50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div></div>
+        <p></p>
+    </div>
+
+    <script>
+        let div = document.querySelector('div>div'),
+            arr = ['很差', '差', '一般', '良好', '棒！！'];
+        for (let i = 0; i < 5; i++) {
+            let span = document.createElement('span');
+            span.innerText = '❤';
+            span.style = 'color:#000;margin:0 5px;';
+            div.appendChild(span);
+        }
+
+        div.onclick = function (e) {
+            console.log(e.target)
+            if (e.target.tagName === 'SPAN') {
+                let node = e.target,
+                    count = -1;
+                while (node) {
+                    node.style.color = 'red';
+                    node = node.previousElementSibling;
+                    count++;
+                }
+                node = e.target.nextElementSibling;
+                while (node) {
+                    node.style.color = '#000';
+                    node = node.nextElementSibling;
+                }
+                console.log(count)
+                document.querySelector('div>p').innerText = arr[count];
+            }
+        }
+
+    </script>
+</body>
+
+</html>

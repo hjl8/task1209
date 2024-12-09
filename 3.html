@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form input:not(:last-child) {
+            width: 100px;
+            padding: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text" placeholder="邮箱/ID/手机号">
+        <input type="password" placeholder="密码">
+        <button>登录</button>
+    </form>
+    <script>
+        let inputs = document.querySelectorAll('form input');
+
+        inputs.forEach(function (item) {
+            item.onfocus = function () {
+                this.placeholder = '';
+                this.style.border = "1px solid red";
+            }
+        })
+
+        inputs.forEach(function (item) {
+            item.onblur = function () {
+                if (this.value === "") {
+                    if (this.type === 'text') {
+                        this.placeholder = '邮箱/ID/手机号';
+                    } else if (this.type === 'password') {
+                        this.placeholder = '密码';
+                        this.style.border = "1px solid red";
+                    }
+                } else {
+                    this.style.border = "1px solid #000";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
